@@ -1,4 +1,4 @@
-# 📘 Introduction to React.js
+<h1 class="Page_topic">📘 Introduction to React.js</h1>
 
 ## 🌟 What is React?
 
