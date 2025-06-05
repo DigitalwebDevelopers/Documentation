@@ -1,0 +1,4 @@
+- [🏠 Home](/)
+- [🔁 Loops](loops.md)
+- [📚 Arrays](arrays.md)
+- [📦 Objects](objects.md)
