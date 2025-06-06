@@ -1,0 +1,130 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">React useState Hook</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <h2 class="page_topic" style="font-size: 1.25rem">
+            Understanding <span class="hillight_head">useState</span> Hook
+          </h2>
+
+          <p class="page_paras">
+            React is a popular JavaScript library for building user interfaces.
+            In modern React (using functional components), one of the most
+            essential tools for managing component state is the
+            <span class="hillight">useState()</span> Hook.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            What is useState Hook in React ?
+          </h3>
+
+          <p class="page_paras">
+            <span class="hillight">useState()</span> is a Hook provided by React
+            that allows you to add state to your functional components.
+            Traditionally, state was only available in class components. But
+            with React Hooks (introduced in React 16.8), you can now use state
+            inside functional components.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const [state, setState] = useState(initialValue);</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            Breakdown of the Given Code :
+          </h3>
+
+          <p class="page_paras">
+            The <span class="hillight">useState()</span> hook takes an initial
+            value and gives back the current state and a function to change it.
+          </p>
+          <p class="page_paras">
+            You can name them anything, but names like
+            <span class="hillight">count</span> and
+            <span class="hillight">setCount</span> keep the code easy to
+            understand. Updating the state re-renders the component.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Basic Example : An Counter App
+          </h3>
+          <p class="page_paras">
+            <span class="hillight">useState(0)</span> sets the starting count to
+            0. When <span class="hillight">setCount(count + 1)</span> is called,
+            it increases the count by 1 and React updates the component
+            automatically.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0); // count starts at 0
+
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Count: {count}&lt;/h1&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increase&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Multiple States in One Component
+          </h3>
+          <p class="page_paras">
+            You can call <span class="hillight">useState()</span> multiple times
+            in a single component to manage different pieces of state:
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">function Profile() {
+  const [name, setName] = useState('John');
+  const [age, setAge] = useState(30);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Name: {name}&lt;/p&gt;
+      &lt;p&gt;Age: {age}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setAge(age + 1)}&gt;Increase Age&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Working with Objects in State
+          </h3>
+          <p class="page_paras">
+            When using objects as state, always update them immutably using the spread operator. If you just did <span class="hillight">setUser({ name: 'Bob' })</span>, you would lose the <span class="hillight">age</span> property.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const [user, setUser] = useState({ name: 'Alice', age: 25 });
+
+function updateName() {
+  setUser({ ...user, name: 'Bob' }); // keeps age unchanged
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Working with Arrays in State
+          </h3>
+          <p class="page_paras">
+          You can also use arrays in state — for example, storing a list of items. Again, always use the spread operator to avoid overwriting the entire array.
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const [items, setItems] = useState([]);
+
+function addItem() {
+  setItems([...items, { id: items.length, value: Math.random() }]);
+}
+</code></pre>
+
+        <p class="page_paras"><span class="hillight">useState</span> updates are asynchronous, which means the new state value won’t be available immediately after calling the update function. Also, every time you update the state, React automatically re-renders the component to reflect the changes.</p>
+        <p class="page_paras">You can use multiple <span class="hillight">useState</span> hooks in the same component to manage different pieces of state. The state can hold any data type—strings, numbers, booleans, objects, arrays, or even functions.</p>
