@@ -1,0 +1,168 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">React useReducer Hook</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <h2 class="page_topic" style="font-size: 1.25rem">
+            Understanding <span class="hillight_head">useReducer</span> Hook
+          </h2>
+
+          <p class="page_paras">
+            <span class="hillight">useReducer()</span> is a React hook that
+            helps manage state using a reducer function. Instead of directly
+            updating values, you send an “action” and the reducer decides how to
+            update the state.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Basic Syntax of useReducer Hook
+          </h3>
+
+          <p class="page_paras">
+            The <span class="hillight">state</span> holds the current data. The
+            <span class="hillight">dispatch</span> function sends actions to
+            update it.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const [state, dispatch] = useReducer(reducer,initialState);</code></pre>
+
+          <p class="page_paras">
+            These actions go through a <span class="hillight">reducer</span> — a
+            function that returns a new state based on the current state and
+            action. The <span class="hillight">initialState</span> sets the
+            starting value.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Simple Counter Example
+          </h3>
+
+          <p class="page_paras">
+            This code defines a simple counter using the
+            <span class="hillight">useReducer()</span> hook. It starts with an
+            initial state of 0. The
+            <span class="hillight">reducer</span> function handles two actions:
+            <span class="hillight">increment</span> and
+            <span class="hillight">decrement</span>
+          </p>
+
+          <p class="page_paras">
+            which update the count accordingly. The component displays the count
+            and two buttons to increase or decrease it using the
+            <span class="hillight">dispatch</span> function.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React, { useReducer } from 'react';
+
+const initialState = 0;
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return state + 1;
+    case 'decrement':
+      return state - 1;
+    default:
+      return state;
+  }
+}
+
+function Counter() {
+  const [count, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; dispatch({ type: 'increment' })}&gt;Increase&lt;/button&gt;
+      &lt;button onClick={() =&gt; dispatch({ type: 'decrement' })}&gt;Decrease&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Real Use Case: Form State
+          </h3>
+
+          <p class="page_paras">
+            This code demonstrates a form using the
+            <span class="hillight">useReducer()</span> hook to manage its state.
+            The initial state is an object with two properties:
+            <span class="hillight">name</span> and
+            <span class="hillight">email</span>.
+          </p>
+
+          <p class="page_paras">
+            The <span class="hillight">formReducer</span> function updates the
+            respective field when the user types into the input fields. The
+            <span class="hillight">handleChange</span> function dispatches an
+            action to update the state with the new value for the corresponding
+            input field.
+          </p>
+
+          <p class="page_paras">
+            The form inputs are controlled, with their values coming from the
+            <span class="hillight">formData</span> state.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const initialForm = { name: '', email: '' };
+
+function formReducer(state, action) {
+  return {
+    ...state,
+    [action.field]: action.value
+  };
+}
+
+function MyForm() {
+  const [formData, dispatch] = useReducer(formReducer, initialForm);
+
+  const handleChange = (e) =&gt; {
+    dispatch({ field: e.target.name, value: e.target.value });
+  };
+
+  return (
+    &lt;form&gt;
+      &lt;input name="name" value={formData.name} onChange={handleChange} /&gt;
+      &lt;input name="email" value={formData.email} onChange={handleChange} /&gt;
+    &lt;/form&gt;
+  );
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Why we use useReducer Hook
+          </h3>
+          <p class="page_paras">
+            You have multiple state values that change together. The state
+            update logic is complex. You want to make your logic more readable
+            and testable
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Final Thoughts For useReducer Hook
+          </h3>
+          <p class="page_paras">
+            The <span class="hillight">useReducer()</span> hook gives you a
+            powerful pattern to manage complex state in a predictable way. Think
+            of it like a mini Redux — without needing any extra library.
+          </p>
+          <p class="page_paras">
+            It’s especially useful in larger components where: Multiple pieces
+            of state interact , You want to move logic out of the component, You
+            plan to scale or refactor later
+          </p>
