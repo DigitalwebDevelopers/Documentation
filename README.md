@@ -1,4 +1,4 @@
- <!-- Content render By JAVASCRIPT -->
+
           <div class="page_header">
             <img
               src="./images/reactjslogo.png"
