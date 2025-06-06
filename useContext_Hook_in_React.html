@@ -1,0 +1,154 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">React useContext Hook</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <h2 class="page_topic" style="font-size: 1.25rem">
+            Understanding <span class="hillight_head">useContext</span> Hook
+          </h2>
+
+          <p class="page_paras">
+            The <span class="hillight">useContext()</span> hook is a way to read
+            shared data (called "context") without manually passing props down
+            the component tree. It works with the Context API to let any
+            component access global values — like theme, user info, language
+            settings, etc.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Why we Use useContext Hook ?
+          </h3>
+
+          <p class="page_paras">
+            Without context, you’d have to pass props through every component
+            level — this is called prop drilling, and it makes your code harder
+            to manage. <span class="hillight">useContext()</span> solves this by
+            allowing components to read shared values directly, no matter how
+            deeply nested they are.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            How The useEffect Hook Works ?
+          </h3>
+
+          <h4 class="sub_topics" style="padding-top: 10px">
+            1. Create the Context
+          </h4>
+
+          <p class="page_paras">
+            You start by using <span class="hillight">createContext()</span> to
+            make a context object.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import { createContext } from 'react';
+const ThemeContext = createContext();
+</code></pre>
+
+          <h4 class="sub_topics" style="padding-top: 10px">
+            2. Wrap Your Components with the Provider
+          </h4>
+
+          <p class="page_paras">
+            The Provider lets you pass a value to the context. All components
+            inside this provider can now access that value.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">&lt;ThemeContext.Provider value="dark"&gt;
+  &lt;MyComponent /&gt;
+&lt;/ThemeContext.Provider&gt;
+</code></pre>
+
+          <h4 class="sub_topics" style="padding-top: 10px">
+            3. Access Context in a Child Component
+          </h4>
+
+          <p class="page_paras">
+            Use <span class="hillight">useContext()</span> to consume the value
+            inside any nested component.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import { useContext } from 'react';
+const theme = useContext(ThemeContext);
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 complete Example of useContext
+          </h3>
+          <p class="page_paras">
+            This example shows how data ("Alice") is passed from the top-level
+            component to deeply nested children — without using props.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React, { createContext, useContext } from 'react';
+
+// Create context
+const UserContext = createContext();
+
+function App() {
+  return (
+    &lt;UserContext.Provider value="Alice"&gt;
+      &lt;Dashboard /&gt;
+    &lt;/UserContext.Provider&gt;
+  );
+}
+
+function Dashboard() {
+  return (
+    &lt;div&gt;
+      &lt;Greeting /&gt;
+    &lt;/div&gt;
+  );
+}
+
+function Greeting() {
+  const user = useContext(UserContext); // Read from context
+  return &lt;h2&gt;Welcome, {user}!&lt;/h2&gt;;
+}
+</code></pre>
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Things to Keep in Mind
+          </h3>
+          <p class="page_paras">
+            Wrap your app (or part of it) with a
+            <span class="hillight">Provider</span> to make the context value
+            available.
+          </p>
+          <p class="page_paras">
+            <span class="hillight">useContext()</span> only works inside
+            function components.
+          </p>
+          <p class="page_paras">
+            Don't overuse context for rapidly changing data — it may lead to
+            unnecessary re-renders. For such cases, prefer
+            <span class="hillight">useState()</span> or
+            <span class="hillight">useReducer()</span>.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Final Thoughts for this Hook
+          </h3>
+          <p class="page_paras">
+            <span class="hillight">useContext()</span> helps you write cleaner
+            and more maintainable React code by removing the need to pass props
+            everywhere. It's a must-know for building scalable React
+            applications.
+          </p>
+          <p class="page_paras">
+            Want to go one step further? You can combine
+            <span class="hillight">useContext()</span> with
+            <span class="hillight">useReducer()</span> to build a global state
+            manager — ask me if you’d like a full example!
+          </p>
