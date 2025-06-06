@@ -1,0 +1,127 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">React useRef Hook</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <h2 class="page_topic" style="font-size: 1.25rem">
+            Understanding <span class="hillight_head">useRef</span> Hook
+          </h2>
+
+          <p class="page_paras">
+            Sometimes, in React, you need to access or store values without
+            causing a re-render. That’s exactly where the
+            <span class="hillight">useRef()</span> hook becomes extremely
+            useful.
+          </p>
+
+          <p class="page_paras">
+            The <span class="hillight">useRef()</span> hook returns a mutable
+            object that persists across re-renders. It’s often used to: Access
+            DOM elements directly , Store values that shouldn’t trigger a
+            re-render when updated (like timers, previous values, etc.)
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Basic Syntax of useRef Hook
+          </h3>
+
+          <p class="page_paras">
+            <span class="hillight">myRef.current</span> holds the value.
+            Updating <span class="hillight">.current</span> does not cause a
+            re-render
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const myRef = useRef(initialValue);
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Case 1: Accessing DOM Elements
+          </h3>
+          <p class="page_paras">
+            Let’s say you want to focus an input field when a button is clicked:
+          </p>
+          <p class="page_paras">
+            Here, the <span class="hillight">ref</span> is attached to the input
+            element and allows us to control it directly from the button click.
+            Let’s say you want to focus an input field when a button is clicked:
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React, { useRef } from 'react';
+
+function FocusInput() {
+  const inputRef = useRef();
+
+  const handleClick = () => {
+    inputRef.current.focus(); // Directly access the DOM element
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;input ref={inputRef} type="text" /&gt;
+      &lt;button onClick={handleClick}&gt;Focus Input&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Case 2: Tracking Previous State
+          </h3>
+          <p class="page_paras">
+            You can use <span class="hillight">useRef()</span> to remember the
+            previous value of a state without causing re-renders:
+          </p>
+          <p class="page_paras">
+            In this example,
+            <span class="hillight">prevCount.current</span> stores the previous
+            count without re-rendering the component.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React, { useState, useRef, useEffect } from 'react';
+
+function PreviousValue() {
+  const [count, setCount] = useState(0);
+  const prevCount = useRef();
+
+  useEffect(() =&gt; {
+    prevCount.current = count;
+  }, [count]);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Current: {count}&lt;/p&gt;
+      &lt;p&gt;Previous: {prevCount.current}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increase&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Things to Keep in Mind
+          </h3>
+          <p class="page_paras">
+            <span class="hillight">useRef()</span> is not just for DOM access —
+            it can hold any value.
+          </p>
+          <p class="page_paras">
+            Updating <span class="hillight">ref.current</span> does not trigger
+            a re-render.
+          </p>
+          <p class="page_paras">
+            Great for working with third-party libraries, timers, animations, or
+            previous values.
+          </p>
