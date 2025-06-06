@@ -1,0 +1,121 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">React useEffect Hook</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <h2 class="page_topic" style="font-size: 1.25rem">
+            Understanding <span class="hillight_head">useEffect</span> Hook
+          </h2>
+
+          <p class="page_paras">
+            React’s <span class="hillight">useEffect()</span> hook is one of the
+            most powerful and commonly used hooks. It lets you perform side
+            effects in your functional components, such as fetching data,
+            directly manipulating the DOM, setting up subscriptions, and more.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            What is useEffect Hook in React ?
+          </h3>
+
+          <p class="page_paras">
+            In React, a side effect is anything that affects something outside
+            the scope of the current function — like network requests, timers,
+            or manually changing the DOM. The
+            <span class="hillight">useEffect()</span> hook allows you to run
+            code after the component renders (or updates), making it ideal for
+            these kinds of tasks.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">useEffect(() => {
+  // Your side effect code here
+
+  return () => {
+    // Optional cleanup code here
+  };
+}, [dependencies]);
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            Breakdown of the Given Code :
+          </h3>
+
+          <p class="page_paras">
+            The first argument is a function where you write the side effect
+            code. The optional return function is for cleanup (like
+            unsubscribing or clearing timers). The dependency array tells React
+            when to run the effect.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 How useEffect Hook Works ?
+          </h3>
+          <p class="page_paras">
+            If you provide an empty dependency array ([ ]), the effect runs only
+            once after the first render — like componentDidMount. If you omit
+            the dependency array, the effect runs after every render. If you
+            provide dependencies, the effect runs only when those values change.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Basic Example : An Counter App
+          </h3>
+          <p class="page_paras">
+            Here, the effect logs the current count value every time it changes.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React, { useState, useEffect } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() =&gt; {
+    console.log(`Count changed to: ${count}`);
+  }, [count]);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increase&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Cleanup in useEffect Hook
+          </h3>
+          <p class="page_paras">
+            Sometimes, effects need cleanup to avoid memory leaks or unwanted
+            behavior (e.g., timers or subscriptions). The cleanup function runs
+            before the component unmounts or before the next effect runs.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">useEffect(() => {
+  const timer = setTimeout(() => {
+    console.log('Timer done!');
+  }, 1000);
+
+  return () => clearTimeout(timer);
+}, []);
+</code></pre>
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Things to Keep in Mind
+          </h3>
+          <p class="page_paras">
+            Always define the dependency array properly in
+            <span class="hillight">useEffect()</span> to avoid infinite loops.
+            Only include the variables that your effect depends on.
+          </p>
