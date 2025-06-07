@@ -1,0 +1,102 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">Handling Events & State</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <p class="page_paras">
+            React applications often need to respond to user actions—like
+            clicking a button or typing in a form. This is where events and
+            state come into play. While events let you capture user interaction,
+            state lets your component "remember" information and update the UI
+            accordingly.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 What is State in React ?
+          </h3>
+          <p class="page_paras">
+            State is a built-in object that stores dynamic data within a
+            component. Unlike props, which come from the outside, state is
+            managed internally by the component.
+          </p>
+          <p class="page_paras">
+            You create state using the
+            <span class="hillight">useState()</span> hook:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return &lt;h2&gt;Count: {count}&lt;/h2&gt;;
+}
+</code></pre>
+
+          <p class="page_paras">
+            <span class="hillight">count</span> is the current state value.
+            <span class="hillight">setCount</span> is the function used to
+            update it. Every time you call the update function, React re-renders
+            the component.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Handling Events in React
+          </h3>
+          <p class="page_paras">
+            React handles events similarly to HTML, but with a few key
+            differences: Event names use camelCase (e.g., &lt;span
+            class="hillight">onClick7lt;/span>)., You pass a function, not a
+            string.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">&lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increase&lt;/button&gt;
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Combining Events & State
+          </h3>
+          <p class="page_paras">
+            Together, state and events let you build interactive interfaces.
+            Here’s a full example:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increase&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+          <p class="page_paras">
+            Clicking the button updates the state, and React re-renders the UI
+            to reflect the new value.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Conclusion of This Article
+          </h3>
+          <p class="page_paras">
+           React’s state and event system gives you fine-grained control over interactivity. By updating state in response to events, you can build dynamic, responsive components that react to user input in real time.
+          </p>
