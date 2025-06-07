@@ -1,0 +1,121 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">React custom Hooks Logic</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <h2 class="page_topic" style="font-size: 1.25rem">
+            Understanding <span class="hillight_head">custom Hooks</span> Hook
+          </h2>
+
+          <p class="page_paras">
+            React provides powerful built-in hooks like
+            <span class="hillight">useState()</span> and
+            <span class="hillight">useEffect()</span>. But as your app grows,
+            logic can get repeated across components. Custom Hooks let you
+            extract and reuse that logic in a clean, reusable way.
+          </p>
+          <p class="page_paras">
+            A Custom Hook is a JavaScript function whose name starts with "use"
+            and can call other hooks. It helps you share logic between
+            components without repeating code. Think of it as your own
+            personalized hook made from built-in ones.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Why we use custom Hooks Hook
+          </h3>
+          <p class="page_paras">
+            Reuse logic across multiple components. Keep components clean and
+            focused. Make code easier to maintain. Follow DRY (Don’t Repeat
+            Yourself) principles
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Basic Example of custom Hooks
+          </h3>
+
+          <p class="page_paras">
+            Let’s say multiple components need to track window width. Instead of
+            repeating the same <span class="hillight">useEffect()</span> logic
+            everywhere, create a custom hook.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import { useState, useEffect } from 'react';
+            
+function useWindowWidth() {
+  const [width, setWidth] = useState(window.innerWidth);
+  
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  return width;
+}
+</code></pre>
+
+          <p class="page_paras">You can now use this like any other hook:</p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">function MyComponent() {
+  const width = useWindowWidth();
+  return &lt;p&gt;Window width: {width}px&lt;/p&gt;;
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Another Example: useToggle
+          </h3>
+
+          <p class="page_paras">
+            This custom hook named
+            <span class="hillight">useToggle</span> manages a boolean state,
+            often used for toggling things like modals, dropdowns, or switches.
+            It uses <span class="hillight">useState</span> to set an initial
+            value (defaulting to <span class="hillight">false</span>) and
+            returns two things:
+          </p>
+          <p class="page_paras">
+            the current state and a function named
+            <span class="hillight">toggle</span> that flips the state between
+            <span class="hillight">true</span> and
+            <span class="hillight">false</span>. This helps simplify toggle
+            logic across components by reusing this small, focused hook.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">function useToggle(initialValue = false) {
+  const [state, setState] = useState(initialValue);
+
+  const toggle = () => setState(prev => !prev);
+
+  return [state, toggle];
+}
+</code></pre>
+          <p class="page_paras">Usage of the Code :</p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const [isOpen, toggleOpen] = useToggle();
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Things to Keep in Mind
+          </h3>
+          <p class="page_paras">
+            Always prefix with use (like useForm, useTheme). Don't call hooks
+            inside loops or conditions inside custom hooks. Keep hooks focused —
+            one concern per hook
+          </p>
