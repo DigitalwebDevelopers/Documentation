@@ -1,0 +1,137 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">React useCallback Hook</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <h2 class="page_topic" style="font-size: 1.25rem">
+            Understanding <span class="hillight_head">useCallback</span> Hook
+          </h2>
+
+          <p class="page_paras">
+            In React, functions inside components get re-created on every
+            render. That’s usually fine — but in some cases, it can hurt
+            performance or cause unexpected behavior. The
+            <span class="hillight">useCallback()</span> hook helps solve this.
+            The <span class="hillight">useCallback()</span> hook returns a
+            memoized version of a callback function, meaning the function is
+            only re-created when its dependencies change.
+          </p>
+          <p class="page_paras">
+            It helps you avoid unnecessary re-renders — especially when passing
+            functions to child components or using them inside effects.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Basic Syntax of useCallback Hook
+          </h3>
+
+          <p class="page_paras">
+            memoizedCallback – the function that’s stored and reused.
+            dependencies – values the function depends on; the callback updates
+            only when these change
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const memoizedCallback = useCallback(() => {
+  // logic here
+}, [dependencies]);
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Basic Example of useCallback
+          </h3>
+
+          <p class="page_paras">
+            💡 Even though the component re-renders,
+            <span class="hillight">handleClick</span> stays the same unless
+            dependencies change (in this case, none).
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React, { useState, useCallback } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const handleClick = useCallback(() => {
+    setCount((prev) => prev + 1);
+  }, []);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={handleClick}&gt;Increase&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Why we use useCallback Hook
+          </h3>
+          <p class="page_paras">
+            Prevents function re-creation on every render. Avoids unnecessary
+            re-renders in child components. Improves performance when passing
+            functions as props
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Example with Child Component
+          </h3>
+
+          <p class="page_paras">
+            Without <span class="hillight">useCallback()</span>, the
+            <span class="hillight">Child</span> would re-render every time even
+            if props didn’t change.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">function Child({ onClick }) {
+  console.log('Child rendered');
+  return &lt;button onClick={onClick}&gt;Click Me&lt;/button&gt;;
+}
+
+function Parent() {
+  const [count, setCount] = useState(0);
+
+  const handleClick = useCallback(() =&gt; {
+    setCount((c) =&gt; c + 1);
+  }, []);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;Child onClick={handleClick} /&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Things to Keep in Mind
+          </h3>
+          <p class="page_paras">
+          Use it only when needed; overusing <span class="hillight">useCallback()</span> can add complexity.
+          It’s useful for performance optimization in components with heavy rendering or deep prop trees.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Final Thoughts For useReducer Hook
+          </h3>
+          <p class="page_paras">
+            The <span class="hillight">useCallback()</span> hook is a helpful
+            optimization tool in React, especially when dealing with expensive
+            renders or passing callbacks to children. It's not always necessary
+            — but when performance matters, it can make a real difference.
+          </p>
