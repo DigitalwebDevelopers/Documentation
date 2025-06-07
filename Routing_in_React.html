@@ -1,0 +1,100 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">Routing in React</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <p class="page_paras">
+            Modern web applications are often made up of multiple views or
+            pages. In React, routing helps you display different components
+            based on the URL, without reloading the entire page. This is made
+            possible using the
+            <span class="hillight">React Router</span> library.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Installing React Router
+          </h3>
+          <p class="page_paras">To use routing, install the package:</p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">npm install react-router-dom</code></pre>
+
+          <p class="page_paras">
+            Then import the necessary components in your app:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import { BrowserRouter, Routes, Route } from 'react-router-dom';</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Basic Routing Setup
+          </h3>
+          <p class="page_paras">Here's how a basic routing setup looks:</p>
+          <p class="page_paras">
+            <span class="hillight">&lt;BrowserRouter></span> wraps your whole
+            app. <span class="hillight">&lt;Routes></span> contains individual
+            <span class="hillight">&lt;Route></span> definitions. path defines
+            the URL, and <span class="hillight">element</span> defines what to
+            render.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+function Home() {
+  return &lt;h2&gt;Home Page&lt;/h2&gt;;
+}
+
+function About() {
+  return &lt;h2&gt;About Page&lt;/h2&gt;;
+}
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+        &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Navigating Between Pages
+          </h3>
+          <p class="page_paras">
+            To navigate between routes, use the
+            <span class="hillight">Link</span> component instead of regular
+            anchor tags:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import { Link } from 'react-router-dom';
+
+&lt;nav&gt;
+  &lt;Link to="/"&gt;Home&lt;/Link&gt;
+  &lt;Link to="/about"&gt;About&lt;/Link&gt;
+&lt;/nav&gt;
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Conclusion of This Article
+          </h3>
+          <p class="page_paras">
+            Routing in React lets you build multi-page applications using
+            single-page architecture. By using
+            <span class="hillight">react-router-dom</span>, you can manage
+            navigation, page views, and URL changes with ease and flexibility.
+          </p>
