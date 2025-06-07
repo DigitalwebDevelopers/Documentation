@@ -1,0 +1,134 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">Introduction to React</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <h2 class="page_topic" style="font-size: 1.25rem">
+            Understanding <span class="hillight_head">React JS</span>
+          </h2>
+
+          <p class="page_paras">
+            React is a <span class="hillight">JavaScript library</span> used for
+            building fast, interactive, and scalable user interfaces. Developed
+            and maintained by Meta (formerly Facebook), React is not a
+            full-fledged framework like Angular — it focuses solely on the
+            <span class="hillight">view layer</span> of an application.
+          </p>
+          <p class="page_paras">
+            What makes React powerful is its ability to break down complex UIs
+            into smaller, reusable components. This
+            <span class="hillight">component-based architecture</span> improves
+            code readability, testing, and maintainability.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 setting Up React JS
+          </h3>
+          <p class="page_paras">
+            For experiments or quick demos, you can add React via CDN:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">&lt;script src="https://unpkg.com/react@18/umd/react.development.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"&gt;&lt;/script&gt;
+</code></pre>
+          <p class="page_paras">
+            But for modern applications, the recommended way is using
+            <span class="hillight">Create React App (CRA)</span>:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">npx create-react-app my-app
+cd my-app
+npm start
+</code></pre>
+
+          <p class="page_paras">
+            This scaffolds a complete React project with Webpack, Babel, ESLint,
+            and other necessary tools preconfigured.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Why we Use React?
+          </h3>
+
+          <p class="page_paras">
+            React uses a <span class="hillight">Virtual DOM</span> to
+            efficiently update the user interface without touching the real DOM
+            directly, which results in faster performance. It follows a
+            <span class="hillight">declarative programming style</span>, where
+            you describe what the UI should look like, and React takes care of
+            updating it accordingly.
+          </p>
+          <p class="page_paras">
+            It also integrates well with libraries and tools, has a vibrant
+            ecosystem, and supports both web and mobile (via React Native)
+            development.
+          </p>
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Folder Structure (CRA) For React
+          </h3>
+
+          <p class="page_paras">
+            Once your app is created, the file structure typically looks like
+            this:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">my-app/
+├── public/
+├── src/
+│   ├── App.js
+│   └── index.js
+└── package.json
+</code></pre>
+
+          <p class="page_paras">You can now use this like any other hook:</p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">function MyComponent() {
+  const width = useWindowWidth();
+  return &lt;p&gt;Window width: {width}px&lt;/p&gt;;
+}
+</code></pre>
+          <p class="page_paras">
+            <span class="hillight">index.js</span>: Entry point where your React
+            app is rendered. <span class="hillight">App.js</span>: Root
+            component where you build your UI.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 How to Upgrading React
+          </h3>
+
+          <p class="page_paras">
+            React is often backward-compatible. You can upgrade React and
+            ReactDOM like this:
+          </p>
+          <p class="page_paras">
+            Always check the official release notes before upgrading a major
+            version.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">npm install react@latest react-dom@latest
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Conclution of the Article
+          </h3>
+          <p class="page_paras">
+            React simplifies frontend development by offering a powerful yet
+            elegant way to build interactive UIs. With its Virtual DOM,
+            component-driven structure, and large ecosystem, React continues to
+            be one of the most in-demand tools in modern web development.
+          </p>
