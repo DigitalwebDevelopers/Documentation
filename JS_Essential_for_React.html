@@ -1,0 +1,133 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">JS Essentials for React</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <p class="page_paras">
+            Before diving deep into React, it’s important to understand some
+            core JavaScript concepts. React is written in JavaScript, and much
+            of its power comes from how well you use the language features —
+            especially <span class="hillight">ES6+</span> syntax.
+          </p>
+          <p class="page_paras">
+            This section covers the most relevant JavaScript features that are
+            frequently used in React applications.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Variables (let..) of JavaScript
+          </h3>
+          <p class="page_paras">
+            React code uses <span class="hillight">const</span> to define values
+            that don’t change and <span class="hillight">let</span> when values
+            need to be reassigned. Avoid using
+            <span class="hillight">var</span> in modern React code.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const name = 'React';
+let count = 0;
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Arrow Functions of JavaScript
+          </h3>
+          <p class="page_paras">
+            Arrow functions offer a concise way to define functions and
+            automatically bind <span class="hillight">this</span>. They're
+            especially useful when passing event handlers or callback functions.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const greet = () =&gt; console.log('Hello React');
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Destructuring of JavaScript
+          </h3>
+          <p class="page_paras">
+            Destructuring helps extract values from objects or arrays, which is
+            common in React props and state.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const person = { name: 'John', age: 30 };
+const { name, age } = person;
+          </code></pre>
+
+          <p class="page_paras">In functional components:</p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">function Profile({ name, age }) {
+  return &lt;p&gt;{name}, {age}&lt;/p&gt;;
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Spread and Rest Operators
+          </h3>
+          <p class="page_paras">
+            The <span class="hillight">spread operator</span> is useful for
+            copying arrays or objects, and <span class="hillight">rest</span> is
+            used to gather arguments.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const numbers = [1, 2, 3];
+const newNumbers = [...numbers, 4]; // [1, 2, 3, 4]
+
+const user = { name: 'Jane' };
+const updatedUser = { ...user, age: 25 };
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Ternary Operator of JavaScript
+          </h3>
+          <p class="page_paras">
+            Used to write concise conditional expressions, often in JSX.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const isLoggedIn = true;
+const message = isLoggedIn ? 'Welcome!' : 'Please sign in';
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Methods: map, filter, reduce 
+          </h3>
+          <p class="page_paras">
+           React heavily relies on <span class="hillight">map()</span> to render lists, and <span class="hillight">filter()</span> for conditional rendering.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const items = ['A', 'B', 'C'];
+items.map((item) =&gt; &lt;li key={item}&gt;{item}&lt;/li&gt;);
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Template Literals of JavaScript
+          </h3>
+          <p class="page_paras">
+         Template literals make it easier to insert variables into strings, especially in JSX or className definitions.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const name = 'React';
+console.log(`Welcome to ${name}`);
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Modules as Imports & Export
+          </h3>
+          <p class="page_paras">
+         React projects use ES6 modules. You import functions, components, and hooks like this:
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React from 'react';
+import MyComponent from './MyComponent';
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Conclusion of the Article
+          </h3>
+          <p class="page_paras">
+          Mastering modern JavaScript is essential for writing clean, efficient React code. These ES6+ features not only make your code more elegant but also allow you to fully harness the power of React.
+          </p>
