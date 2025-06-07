@@ -1,0 +1,96 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">Lists & Forms in React</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <p class="page_paras">
+            In real applications, you often work with collections of data (like
+            product lists) and capture user input through forms. React provides
+            simple, consistent ways to render lists and handle form inputs using
+            state.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Rendering Lists in React ?
+          </h3>
+          <p class="page_paras">
+            You can use JavaScript’s
+            <span class="hillight">map()</span> function to loop through an
+            array and render a list of elements:
+          </p>
+          <p class="page_paras">
+          Each item is displayed as a list element. React needs a unique <span class="hillight">key</span> prop for each item for better rendering performance.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const items = ['Apple', 'Banana', 'Cherry'];
+
+&lt;ul&gt;
+  {items.map((item, index) =&gt; (
+    &lt;li key={index}&gt;{item}&lt;/li&gt;
+  ))}
+&lt;/ul&gt;
+</code></pre>
+
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Handling Forms in React
+          </h3>
+          <p class="page_paras">
+          React forms work by storing input values in state and updating them with events.
+          </p>
+          <p class="page_paras">
+         The input’s value is linked to <span class="hillight">name</span> state. As the user types, <span class="hillight">handleChange()</span> updates the state. This is called a controlled component.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React, { useState } from 'react';
+
+function MyForm() {
+  const [name, setName] = useState('');
+
+  const handleChange = (e) =&gt; {
+    setName(e.target.value);
+  };
+
+  return (
+    &lt;form&gt;
+      &lt;input type="text" value={name} onChange={handleChange} /&gt;
+      &lt;p&gt;You typed: {name}&lt;/p&gt;
+    &lt;/form&gt;
+  );
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Multiple Inputs in Forms
+          </h3>
+          <p class="page_paras">
+          You can manage multiple form fields using one state object: This approach keeps your code clean and scalable.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const [formData, setFormData] = useState({ name: '', email: '' });
+
+const handleChange = (e) =&gt; {
+  setFormData({ ...formData, [e.target.name]: e.target.value });
+};
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Conclusion of This Article
+          </h3>
+          <p class="page_paras">
+           Rendering lists with <span class="hillight">map()</span> and managing form input with <span class="hillight">useState()</span> are essential React skills. With just a few patterns, you can handle complex UIs in a simple, declarative way.
+          </p>
