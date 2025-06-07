@@ -1,0 +1,114 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">Components and Props</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <p class="page_paras">
+            React is all about components. A component is a reusable piece of UI
+            that can be as small as a button or as big as an entire page. To
+            make components dynamic, React uses props (short for properties),
+            which let you pass data from one component to another.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Creating a Component
+          </h3>
+          <p class="page_paras">
+            Components can be created using simple JavaScript functions. These
+            functions return JSX, which describes the UI.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">function Welcome() {
+  return &lt;h1&gt;Hello, World!&lt;/h1&gt;;
+}</code></pre>
+          <p class="page_paras">You can render this component like so:</p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">&lt;Welcome /&gt;
+</code></pre>
+          <p class="page_paras">
+            React components must start with a capital letter, otherwise React
+            will treat them like regular HTML tags.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Using Props to Pass Data
+          </h3>
+          <p class="page_paras">
+            Props allow you to send information into a component. You can treat
+            them like function arguments.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">function Greeting(props) {
+  return &lt;h2&gt;Hello, {props.name}!&lt;/h2&gt;;
+}
+
+&lt;Greeting name="Alice" /&gt;
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Destructuring Props
+          </h3>
+          <p class="page_paras">
+            You can make your code cleaner by using ES6 destructuring:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">function Greeting({ name }) {
+  return &lt;h2&gt;Hello, {name}!&lt;/h2&gt;;
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Composing Multiple Components
+          </h3>
+          <p class="page_paras">
+            Components can include other components, making your UI easy to
+            manage.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">function App() {
+  return (
+    &lt;div&gt;
+      &lt;Greeting name="Alice" /&gt;
+      &lt;Greeting name="Bob" /&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Dynamic Rendering
+          </h3>
+          <p class="page_paras">
+            You can render different UI based on values, like so: This helps you
+            build interactive, data-driven user interfaces.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const isLoggedIn = true;
+return &lt;h1&gt;{isLoggedIn ? 'Welcome back!' : 'Please sign in'}&lt;/h1&gt;;
+</code></pre>
+
+          <p class="page_paras">
+            This is called composition, and it helps break down large UIs into
+            smaller, reusable pieces.
+          </p>
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Conclusion of This Article
+          </h3>
+          <p class="page_paras">
+            Components define the structure, and props bring in the data. By
+            combining them, React lets you build powerful, dynamic, and reusable
+            UIs in a clean and organized way.
+          </p>
