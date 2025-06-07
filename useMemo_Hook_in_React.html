@@ -1,0 +1,98 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">React useMemo Hook</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <h2 class="page_topic" style="font-size: 1.25rem">
+            Understanding <span class="hillight_head">useMemo</span> Hook
+          </h2>
+
+          <p class="page_paras">
+            In React, functions and calculations run again every time a
+            component re-renders. This can slow things down if you’re doing
+            something heavy like filtering large lists or complex math. That’s
+            where <span class="hillight">useMemo()</span> helps.
+          </p>
+          <p class="page_paras">
+            The <span class="hillight">useMemo()</span> hook caches a calculated
+            value and only recalculates it when one of its dependencies changes.
+            This helps improve performance by avoiding unnecessary
+            recalculations.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Basic Syntax of useMemo Hook
+          </h3>
+
+          <p class="page_paras">
+            <span class="hillight">memoizedValue</span> – the cached result of
+            your calculation. <span class="hillight">dependencies</span> – the
+            values that trigger recalculation if changed
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const memoizedValue = useMemo(() => {
+  // calculation
+  return someResult;
+}, [dependencies]);
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Basic Example of useMemo
+          </h3>
+
+          <p class="page_paras">
+             The square is only recalculated when the <span class="hillight">number</span> changes. Otherwise, React uses the cached result.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React, { useState, useMemo } from 'react';
+
+function SquareCalculator({ number }) {
+  const squared = useMemo(() => {
+    console.log('Calculating...');
+    return number * number;
+  }, [number]);
+
+  return &lt;p&gt;Square of {number} is {squared}&lt;/p&gt;;
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 When we use useMemo Hook
+          </h3>
+          <p class="page_paras">
+            Use <span class="hillight">useMemo()</span> when: You have a slow calculation that doesn’t need to run on every render, You want to improve performance for large data or filtering You're seeing unnecessary re-renders from derived data
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Example Real Case: Filtering a List
+          </h3>
+
+          <p class="page_paras">
+            Without <span class="hillight">useMemo()</span>, this filtering runs every time the component renders — even if the data hasn’t changed.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const filteredUsers = useMemo(() => {
+  return users.filter(user => user.name.includes(search));
+}, [users, search]);
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Things to Keep in Mind
+          </h3>
+          <p class="page_paras">
+           Don't overuse it — it adds complexity if used when not needed.It does not prevent re-renders, it just avoids re-computing values.Use it for expensive logic only, not for basic math or simple functions.
+          </p>
