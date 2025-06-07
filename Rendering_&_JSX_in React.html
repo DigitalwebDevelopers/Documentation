@@ -1,0 +1,127 @@
+         <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">Rendering & JSX React</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <p class="page_paras">
+            React uses a special syntax called
+            <span class="hillight">JSX</span> (JavaScript XML) to describe what
+            the UI should look like. JSX lets you write HTML-like code inside
+            JavaScript, which React then compiles into actual DOM instructions.
+          </p>
+          <p class="page_paras">
+            This makes code easier to read and write, especially when working
+            with components.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 What is JSX ( JavaScriptXml )
+          </h3>
+          <p class="page_paras">
+            JSX is a syntax extension that looks similar to HTML but is actually
+            syntactic sugar for
+            <span class="hillight">React.createElement()</span> calls.
+          </p>
+          <p class="page_paras">Example of JavaScript XML:</p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;
+</code></pre>
+          <p class="page_paras">This JSX gets converted to:</p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">React.createElement('h1', null, 'Hello, world!');
+</code></pre>
+          <p class="page_paras">
+            You can also embed JavaScript expressions inside JSX using curly
+            braces:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">Rconst name = 'React';
+const element = &lt;h1&gt;Welcome, {name}&lt;/h1&gt;;
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 JSX Rules to Remember
+          </h3>
+          <p class="page_paras">
+            Return only one parent element JSX must return a single enclosing
+            tag. You can wrap elements in a &lt;div> or a &lt;React.Fragment>.
+          </p>
+          <p class="page_paras">
+            Use className instead of class Since JSX is closer to JavaScript
+            than HTML, you must write
+            <span class="hillight">className</span> (not
+            <span class="hillight">class</span>).
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">&lt;div className="container"&gt;Hello&lt;/div&gt;
+</code></pre>
+
+          <p class="page_paras">
+            Self-close empty tags without children must be self-closed:
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">&lt;input /&gt; // self Closed Tags in react JSx
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Rendering of Elements
+          </h3>
+          <p class="page_paras">
+            React elements are rendered using the
+            <span class="hillight">ReactDOM.render()</span> method in legacy
+            versions, or through the
+            <span class="hillight">createRoot()</span> method in React 18+.
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(&lt;App /&gt;);
+          </code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Dynamic Rendering
+          </h3>
+          <p class="page_paras">
+            You can render different UI based on values, like so: This helps you
+            build interactive, data-driven user interfaces.
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const isLoggedIn = true;
+return &lt;h1&gt;{isLoggedIn ? 'Welcome back!' : 'Please sign in'}&lt;/h1&gt;;
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 JSX in Components
+          </h3>
+          <p class="page_paras">
+            JSX is mostly used inside functional components to describe what the
+            UI should look like:
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">function Greeting(props) {
+  return &lt;h2&gt;Hello, {props.name}!&lt;/h2&gt;;
+}
+</code></pre>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Conclusion of This Article
+          </h3>
+          <p class="page_paras">
+            JSX is what makes writing React components feel intuitive and
+            similar to HTML, while still having the full power of JavaScript.
+            Mastering JSX and rendering logic is key to building responsive and
+            maintainable UIs.
+          </p>
