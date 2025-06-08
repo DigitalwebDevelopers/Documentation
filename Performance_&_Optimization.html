@@ -1,0 +1,99 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">Performance Optimization</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <p class="page_paras">
+            As React apps grow, performance can become a concern. React offers
+            built-in tools and strategies to help minimize unnecessary renders,
+            reduce memory usage, and keep your UI fast and responsive.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Why Optimize React App ?
+          </h3>
+          <p class="page_paras">
+            React re-renders components when state or props change. In large
+            apps, this can lead to slow updates if not managed well.
+            Optimization ensures that your components only re-render when truly
+            necessary.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Common Techniques for It
+          </h3>
+          <h4 class="sub_topics" style="padding-top: 10px">1. Memoization</h4>
+          <p class="page_paras">
+            Use <span class="hillight">React.memo</span> to prevent re-rendering
+            functional components unless their props change:
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const MyComponent = React.memo(function MyComponent({ value }) {
+  return &lt;p&gt;Value: {value}&lt;/p&gt;;
+});
+</code></pre>
+
+          <p class="page_paras">
+            Also, use <span class="hillight">useMemo()</span> to cache expensive
+            calculations:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const expensiveValue = useMemo(() =&gt; computeHeavyTask(data), [data]);
+</code></pre>
+
+          <h4 class="sub_topics" style="padding-top: 10px">2. useCallback()</h4>
+          <p class="page_paras">
+            Pass stable callback functions using
+            <span class="hillight">useCallback()</span> to avoid re-creating
+            functions on every render:
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const handleClick = useCallback(() =&gt; {
+  doSomething();
+}, []);
+</code></pre>
+
+          <h4 class="sub_topics" style="padding-top: 10px">3. Lazy Loading</h4>
+          <p class="page_paras">
+            Load components only when needed using
+            <span class="hillight">React.lazy</span> and
+            <span class="hillight">Suspense</span>:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const LazyComponent = React.lazy(() =&gt; import('./LazyComponent'));
+
+&lt;Suspense fallback={&lt;p&gt;Loading...&lt;/p&gt;}&gt;
+  &lt;LazyComponent /&gt;
+&lt;/Suspense&gt;
+</code></pre>
+
+          <p class="page_paras">
+            This reduces the initial bundle size and improves load time.
+          </p>
+          <h4 class="sub_topics" style="padding-top: 10px">
+            4. Avoid Unnecessary State
+          </h4>
+          <p class="page_paras">
+            Keep your state minimal. If a value can be derived from props or
+            computed during render, don’t store it in state.
+          </p>
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Conclusion of This Article
+          </h3>
+          <p class="page_paras">
+            React provides many tools to help you build fast, efficient apps. By
+            applying memoization, lazy loading, and clean code practices, you
+            ensure that your app remains snappy—even as it scales.
+          </p>
