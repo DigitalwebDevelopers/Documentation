@@ -1,0 +1,137 @@
+          <div class="page_header">
+            <img
+              src="./images/reactjslogo.png"
+              alt="reactLogo"
+              class="LangLogo"
+            />
+            <span>
+              <h1 class="page_topic">How to Styling React</h1>
+              <span class="name_credit"
+                ><img
+                  src="https://www.youtube.com/favicon.ico"
+                  alt="credit"
+                  class="credit"
+                />
+                <p>Taught By <b>Code with Deepanshu Knox</b></p></span
+              >
+            </span>
+          </div>
+
+          <p class="page_paras">
+            Styling in React allows you to visually design your components just
+            like traditional HTML/CSS, but with additional flexibility. You can
+            use standard CSS, inline styles, CSS Modules, or even libraries like
+            styled-components — all depending on your project’s scale and style
+            preference.
+          </p>
+
+          <h4 class="sub_topics" style="padding-top: 10px">2. useCallback()</h4>
+          <p class="page_paras">
+            Pass stable callback functions using
+            <span class="hillight">useCallback()</span> to avoid re-creating
+            functions on every render:
+          </p>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const handleClick = useCallback(() =&gt; {
+  doSomething();
+}, []);
+</code></pre>
+
+          <h4 class="sub_topics" style="padding-top: 10px">
+            1. Regular CSS Files
+          </h4>
+          <p class="page_paras">
+            The simplest way to style is to create a
+            <span class="hillight">.css</span> file and import it into your
+            component:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">/* styles.css */
+.title {
+  color: blue;
+  font-size: 24px;
+}
+</code></pre>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import './styles.css';
+
+function App() {
+  return &lt;h1 className="title"&gt;Hello World&lt;/h1&gt;;
+}
+</code></pre>
+
+          <p class="page_paras">
+            You can keep styling separate and use traditional CSS features like
+            media queries and animations.
+          </p>
+
+          <h4 class="sub_topics" style="padding-top: 10px">2. Inline Styles</h4>
+          <p class="page_paras">
+            You can apply styles directly using the
+            <span class="hillight">style</span> attribute. Note that the value
+            is an object, and CSS properties use camelCase:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">const style = {
+  color: 'green',
+  fontWeight: 'bold'
+};
+
+&lt;h2 style={style}&gt;Inline Styled Text&lt;/h2&gt;
+</code></pre>
+
+          <p class="page_paras">
+            Useful for dynamic styling but can become hard to manage in large
+            components.
+          </p>
+
+          <h4 class="sub_topics" style="padding-top: 10px">3. CSS Modules</h4>
+          <p class="page_paras">
+            CSS Modules scope styles locally by default, which avoids class name
+            conflicts:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">/* App.module.css */
+.button {
+  background-color: orange;
+}
+</code></pre>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import styles from './App.module.css';
+
+&lt;button className={styles.button}&gt;Click Me&lt;/button&gt;
+</code></pre>
+
+          <p class="page_paras">This is ideal for medium to large projects.</p>
+
+          <h4 class="sub_topics" style="padding-top: 10px">
+            4. Styled Components
+          </h4>
+          <p class="page_paras">
+            A powerful method using tagged template literals to style
+            components:
+          </p>
+
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">npm install styled-components
+</code></pre>
+          <pre><code class="language-javascript" style="font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">import styled from 'styled-components';
+
+const Button = styled.button`
+  background: purple;
+  color: white;
+`;
+
+&lt;Button&gt;Styled Button&lt;/Button&gt;
+</code></pre>
+
+          <p class="page_paras">
+            Styled-components let you co-locate styles and logic in one file and
+            support dynamic styling using props.
+          </p>
+
+          <h3 class="sub_topics" style="padding-top: 10px">
+            🔸 Conclusion of This Article
+          </h3>
+          <p class="page_paras">
+            React gives you multiple styling options — from classic CSS to
+            powerful CSS-in-JS solutions. Choose based on your needs: for small
+            projects, inline or regular CSS works well, while larger apps
+            benefit from CSS Modules or styled-components.
+          </p>
